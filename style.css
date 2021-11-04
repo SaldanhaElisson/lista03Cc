@@ -52,7 +52,7 @@ nav h1{
 section{
     margin: auto;
     margin-top: 15rem;
-    width: 100rem;
+    width: 130rem;
     height: 50rem;
     
     background-color: var(--color-blue4);
@@ -183,7 +183,8 @@ input{
 }
 
 button{
-    margin-right: 2rem;
+   
+    margin-top: 2rem;
 }
 
 .inpuntNumbers{
@@ -200,4 +201,9 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.inpunt2 {
+    width: 12rem;
+    height: 3rem;
 }
