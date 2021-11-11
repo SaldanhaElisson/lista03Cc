@@ -1,7 +1,7 @@
 // Função responsavel pela operação algebrica
 function whatIsMoreValue(){
-    let maiorValor = 0;
-    let menorValor;
+    let maiorIdade = 0;
+    let menorIdade;
     let elementDom = document.querySelector('.resultado');
     let resultado = [];
     elementDom.innerHTML = ``
@@ -16,17 +16,21 @@ function whatIsMoreValue(){
 
        let idade =  calcularIdade(pessoa)
 
-       // validar idade
+       //validar idade
        if(idade <= 0 ){ 
-            alert(`Pessoa ${i}° com idade invalida`)
+            alert(`Pessoa ${i+1}° com idade invalida`)
             return
         }
 
         resultado.push(idade)
-        elementDom.innerHTML += `<p> Pessoa ${i} ° tem ${resultado[i]} anos </p> `
+        console.log(resultado)
+        
    }
-    
-   
+        resultado.forEach((resultadoDaIdade, index)=> {
+        elementDom.innerHTML += `<p> Pessoa ${index+1} ° tem ${resultadoDaIdade} anos </p> `
+     } )
+     elementDom.innerHTML += whoIsMoreOld(resultado)
+
 }
 
 function calcularIdade(dataCandidato){
@@ -42,21 +46,14 @@ function calcularIdade(dataCandidato){
     const anoCandidato =  Number(dataSeparada[0])
     const mesCandidato = Number(dataSeparada[1])
     const diaCandidato = Number(dataSeparada[2])
-
-    console.log(month)
-    console.log(mesCandidato)
    
     // fazer calculo de idade
     let idade = years - anoCandidato
 
-    
-
     //verificar se já fez aniversario
-    console.log(!jaFezAniversario(diaCandidato, mesCandidato, day, month))
     if(!jaFezAniversario(diaCandidato, mesCandidato, day, month)){
         idade = idade-1
     }
-    console.log(idade)
     return idade
 }
 
@@ -75,6 +72,21 @@ document.querySelector('button').addEventListener('click', (e) =>{
     whatIsMoreValue()
 })
 
+
+function whoIsMoreOld(idades){
+        let maiorIdade = 0;
+        let menorIdade;
+
+        for(let i = 0; i < 10; i++){
+            let valorAtual = idades[i]
+            console.log(valorAtual)
+            maiorIdade = valorAtual >= maiorIdade ? valorAtual: maiorIdade;
+            menorIdade = valorAtual >= menorIdade ? menorIdade: valorAtual
+    
+        }
+        return  `<p> O mais velho tem: ${maiorIdade} anos  e o mais novo tem  : ${menorIdade} anos`
+}
+
 // pegar valor (ok)
 // verificar se todos os campos estão preenchidos (ok)
 // fazer com todos as 10° pessoas (ok)
@@ -85,7 +97,6 @@ document.querySelector('button').addEventListener('click', (e) =>{
         // função validar idade (ok)
             // se a idade for menor ou igual a zero o candidato não existe (ok)
         // colocar em uma variavel resultado (ok)
-// mostrar na tela 
-
-
-// comparar  o e dizer a pessoa que tem o menor valor e o maior ( já feito na primeira questão)
+// mostrar na tela  (ok)
+// comparar  o e dizer a pessoa que tem o menor valor e o maior ( já feito na primeira questão) ok
+// Mostra na tela (ok)
